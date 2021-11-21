@@ -3,6 +3,7 @@ import { Image, View } from 'react-native';
 import { Box, ButtonDefault, Container, HorizontalDivider, TextButtonDefault } from '../../components/Spacing';
 import { SliderBox } from "react-native-image-slider-box";
 import { Subtitle, Title } from '../../components/Texts';
+import { useNavigation } from '@react-navigation/core';
 
 const DetailsHouse: React.FC = ({ route }) => {
   const {
@@ -18,8 +19,13 @@ const DetailsHouse: React.FC = ({ route }) => {
     extraActivities
   } = route.params;
 
+  const navigation = useNavigation();
+
+  const handleNext = () => {
+    navigation.navigate('PaymentScreen');
+  }
+
   return (
-    // <Container>
     <Box height="100%">
       <Box width="100%" height="40%">
         <SliderBox images={photos}
@@ -67,15 +73,13 @@ const DetailsHouse: React.FC = ({ route }) => {
 
       </Box>
       <Box height="20%" alignItems="center" justifyContent="center" p={20}>
-        <ButtonDefault>
+        <ButtonDefault onPress={handleNext}>
           <TextButtonDefault>
             Ir para pagamento
           </TextButtonDefault>
         </ButtonDefault>
       </Box>
     </Box >
-
-    // </Container>
   )
 
 }

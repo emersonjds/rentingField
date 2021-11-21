@@ -14,6 +14,7 @@ import HomeScreen from './screens/HomeScreen';
 import Map from './screens/Map';
 import Adventure from './screens/Adventure';
 import DetailsHouse from './screens/DetailsHouse';
+import PaymentScreen from './screens/PaymentScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -67,6 +68,11 @@ const Routes = () => {
         <Stack.Screen name="DetailsHouse" component={DetailsHouse}
           options={{
             headerTitle: 'Detalhes'
+          }}
+        />
+        <Stack.Screen name="PaymentScreen" component={PaymentScreen}
+          options={{
+            headerTitle: 'Pagar Estadia'
           }}
         />
       </Stack.Navigator>
