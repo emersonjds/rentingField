@@ -1,9 +1,10 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity } from 'react-native';
-import Colors from '../../Contants';
+import React from "react";
+import { Image, Text, TouchableOpacity } from "react-native";
+import Colors from "../../Contants";
 
-import { Box } from '../Spacing';
-import { Title } from '../Texts';
+import { Box } from "../Spacing";
+import { Title } from "../Texts";
+import { AntDesign } from "@expo/vector-icons";
 
 interface BoxHouseProps {
   id?: number;
@@ -39,13 +40,13 @@ const BoxHouse: React.FC<BoxHouseProps> = ({
       }}
       onPress={onPress}
     >
-
       <Box height="65%">
-        <Image source={image}
+        <Image
+          source={image}
           resizeMode="cover"
           style={{
-            height: '100%',
-            width: '100%',
+            height: "100%",
+            width: "100%",
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
           }}
@@ -53,36 +54,39 @@ const BoxHouse: React.FC<BoxHouseProps> = ({
       </Box>
       <Box height="35%">
         <Box
-          mt={20} flexDirection="row"
+          mt={20}
+          flexDirection="row"
           width="100%"
           justifyContent="space-between"
           pr={20}
           pl={20}
         >
-          <Title>
-            {name}
-          </Title>
-          <Title>
-            R$ {value}
-          </Title>
+          <Title>{name}</Title>
+          <Title>R$ {value}</Title>
         </Box>
         <Box
-          mt={20} flexDirection="row"
+          mt={20}
+          flexDirection="row"
           width="100%"
           justifyContent="space-between"
           pr={20}
           pl={20}
         >
-          <Text>
-            {avaliation}
-          </Text>
-          <Text>
-            {owner}
-          </Text>
+          <Box alignItems="center" flexDirection="row">
+            <Text>{avaliation}</Text>
+            <AntDesign
+              name="star"
+              size={18}
+              color={Colors.orange}
+              style={{ marginLeft: 5 }}
+            />
+          </Box>
+
+          <Text>{owner}</Text>
         </Box>
       </Box>
     </TouchableOpacity>
   );
-}
+};
 
 export default BoxHouse;
