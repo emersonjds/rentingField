@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Platform, View } from 'react-native';
+import { Button, Platform, ScrollView, View } from 'react-native';
 import { Box, Container, HorizontalDivider } from '../../components/Spacing';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import BoxHouse from '../../components/BoxHouse';
+import { Title } from '../../components/Texts';
 
 
 const HomeScreen: React.FC = () => {
@@ -31,8 +33,29 @@ const HomeScreen: React.FC = () => {
 
   return (
     <Container>
-      <Box>
-        {/* <View>
+
+      <Box width="100%">
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <BoxHouse />
+          <BoxHouse />
+        </ScrollView>
+      </Box>
+
+      <HorizontalDivider />
+
+      <Title>
+        Melhores Ofertas
+      </Title>
+
+      <HorizontalDivider />
+
+      <Title>
+        Procurando Aventura ?!
+      </Title>
+
+
+
+      {/* <View>
           <View>
             <Button onPress={showDatepicker} title="Show date picker!" />
           </View>
@@ -54,8 +77,8 @@ const HomeScreen: React.FC = () => {
             />
           )}
         </View> */}
-      </Box>
-      <HorizontalDivider />
+
+
     </Container>
   );
 }
