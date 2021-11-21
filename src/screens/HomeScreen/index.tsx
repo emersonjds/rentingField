@@ -35,7 +35,7 @@ const HomeScreen: React.FC = () => {
       description: `Fazenda Rosalina, localizado as margens da Rodovia um lugar calmo e tranquilo, com várias áreas de lazer. Pensado para familias que querem passar um fim de semana na natureza
     `,
       value: 1000,
-      avaliation: 4,
+      avaliation: 4.9,
       owner: "Antonio de Souza",
       image: require("../../assets/properties/f1.webp"),
       extraActivities:
@@ -88,8 +88,8 @@ const HomeScreen: React.FC = () => {
       name: "Rio do Ouro",
       description: "Fazenda Rio do Ouro, localizado na margem da Rodovia",
       value: 2000,
-      avaliation: 3,
-      owner: "Antonio de Souza",
+      avaliation: 4.8,
+      owner: "Joarez Rodrigues",
       image: require("../../assets/properties/f2.jpeg"),
       photos: [
         require("../../assets/properties/f1.webp"),
