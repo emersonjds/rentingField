@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
 import { View } from "react-native";
 import { SliderBox } from "react-native-image-slider-box";
@@ -27,11 +28,15 @@ const DetailsAdventure: React.FC = ({ route }) => {
     descriptionPropertie,
   } = route.params;
 
+  const navigation = useNavigation();
+
   useEffect(() => {
     console.log(photos);
   }, []);
 
-  const handleNext = () => {};
+  const handleNext = () => {
+    navigation.navigate("PaymentScreen");
+  };
   return (
     <Box height="100%">
       <Box width="100%" height="40%">
@@ -80,7 +85,7 @@ const DetailsAdventure: React.FC = ({ route }) => {
       </Box>
       <Box height="20%" alignItems="center" justifyContent="center" p={20}>
         <ButtonDefault onPress={handleNext}>
-          <TextButtonDefault>Ir para pagamento</TextButtonDefault>
+          <TextButtonDefault>Agendar Estadia</TextButtonDefault>
         </ButtonDefault>
       </Box>
     </Box>
