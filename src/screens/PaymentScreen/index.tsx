@@ -3,13 +3,19 @@ import { Button, Platform, TouchableOpacity, View, Text } from "react-native";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Subtitle, Title } from "../../components/Texts";
-import { Box, Container } from "../../components/Spacing";
+import {
+  Box,
+  ButtonDefault,
+  Container,
+  TextButtonDefault,
+} from "../../components/Spacing";
 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../../Contants";
 import moment from "moment";
+import { useNavigation } from "@react-navigation/core";
 
 const PaymentScreen: React.FC = () => {
   const [date, setDate] = useState(new Date());
@@ -80,6 +86,12 @@ const PaymentScreen: React.FC = () => {
   const handleConfirm1 = (date) => {
     setStartedDate1(date);
     hideDatePicker();
+  };
+
+  const navigation = useNavigation();
+
+  const handleNext = () => {
+    navigation.navigate("SuccessScreen");
   };
 
   return (
@@ -255,6 +267,12 @@ const PaymentScreen: React.FC = () => {
               </Title>
             </Box>
           </Title>
+        </Box>
+
+        <Box alignItems="center" justifyContent="center" p={20}>
+          <ButtonDefault onPress={handleNext}>
+            <TextButtonDefault>Finalizar Pagamento</TextButtonDefault>
+          </ButtonDefault>
         </Box>
       </Box>
     </Container>

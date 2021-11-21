@@ -15,6 +15,7 @@ import Adventure from "./screens/Adventure";
 import DetailsHouse from "./screens/DetailsHouse";
 import PaymentScreen from "./screens/PaymentScreen";
 import DetailsAdventure from "./screens/DetailsAdventure";
+import SuccessScreen from "./screens/SuccessScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +25,7 @@ function Home() {
   return (
     <Tabs.Navigator>
       <Tabs.Screen
-        name=" "
+        name=" Fazendas"
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
@@ -99,6 +100,13 @@ const Routes = () => {
           component={DetailsAdventure}
           options={{
             headerTitle: "Aventura",
+          }}
+        />
+        <Stack.Screen
+          name="SuccessScreen"
+          component={SuccessScreen}
+          options={{
+            headerTitle: "Sucesso Pagamento",
           }}
         />
       </Stack.Navigator>
