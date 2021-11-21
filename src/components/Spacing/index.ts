@@ -1,29 +1,30 @@
 import { ViewProps, TouchableOpacityProps } from "react-native";
 import styled from "styled-components/native";
 import {
-    color,
-    flex,
-    space,
-    SpaceProps,
-    ColorProps,
-    HeightProps,
-    FlexboxProps,
-    BorderProps,
-    BorderRadiusProps,
-    WidthProps,
-    PositionProps,
+  color,
+  flex,
+  space,
+  SpaceProps,
+  ColorProps,
+  HeightProps,
+  FlexboxProps,
+  BorderProps,
+  BorderRadiusProps,
+  WidthProps,
+  PositionProps,
 } from "styled-system";
+import Colors from "../../Contants";
 
 type BoxProps =
-    | SpaceProps
-    | ColorProps
-    | HeightProps
-    | ViewProps
-    | BorderProps
-    | BorderRadiusProps
-    | FlexboxProps
-    | WidthProps
-    | PositionProps;
+  | SpaceProps
+  | ColorProps
+  | HeightProps
+  | ViewProps
+  | BorderProps
+  | BorderRadiusProps
+  | FlexboxProps
+  | WidthProps
+  | PositionProps;
 
 export const Box = styled.View<BoxProps>`
 	${color}
@@ -39,16 +40,17 @@ export const Divider = styled.View<BoxProps>`
 	${space}
 `;
 
-export const BoxFull = styled.View`
+export const Container = styled.View`
 	padding: 20px;
 	flex: 1;
+  background-color: ${Colors.white};
 `;
 
 export const TouchableBox = styled.TouchableOpacity``;
 
 export const HorizontalDivider = styled.View`
 	border-bottom-width: 1px;
-	border-bottom-color: #D9DBE9;
+	border-bottom-color: ${Colors.green};
 	width: 100%;
 	margin-top: 15px;
 	margin-bottom: 15px;
