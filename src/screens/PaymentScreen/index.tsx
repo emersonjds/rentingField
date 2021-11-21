@@ -3,17 +3,29 @@ import { Button, Platform, TouchableOpacity, View, Text } from "react-native";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Subtitle, Title } from "../../components/Texts";
-import { Box, Container, HorizontalDivider } from "../../components/Spacing";
+import { Box, Container } from "../../components/Spacing";
+
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../../Contants";
+import moment from "moment";
 
 const PaymentScreen: React.FC = () => {
   const [date, setDate] = useState(new Date());
+  const [date1, setDate1] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(true);
+  const [show1, setShow1] = useState(true);
 
   const onChange = (event: any, selectedDate: Date) => {
     const currentDate = selectedDate || date;
+    setShow(Platform.OS === "ios");
+    setDate(currentDate);
+  };
+
+  const onChange2 = (event: any, selectedDate: Date) => {
+    const currentDate = selectedDate || date1;
     setShow(Platform.OS === "ios");
     setDate(currentDate);
   };
@@ -42,6 +54,32 @@ const PaymentScreen: React.FC = () => {
     if (valuePerson > 0) {
       setValuePerson(valuePerson - 1);
     }
+  };
+
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [startedDate, setStartedDate] = useState(new Date());
+  const [startedDate1, setStartedDate1] = useState(new Date());
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const showDatePicker1 = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    setStartedDate(date);
+    hideDatePicker();
+  };
+
+  const handleConfirm1 = (date) => {
+    setStartedDate1(date);
+    hideDatePicker();
   };
 
   return (
@@ -103,20 +141,47 @@ const PaymentScreen: React.FC = () => {
         Escolha a data para hospedagem
       </Title>
 
-      {show && (
-        <DateTimePicker
-          minimumDate={new Date()}
-          placeholderText="Select a date"
-          textColor="red"
-          compact
-          testID="dateTimePicker"
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
+      <Box>
+        <Title
+          onPress={showDatePicker}
+          style={{
+            marginBottom: 10,
+          }}
+        >
+          Entrada
+        </Title>
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm1}
+          onCancel={hideDatePicker}
         />
-      )}
+        <Text>{moment(startedDate).format("DD/MM/YYYY")}</Text>
+        <Subtitle
+          style={{
+            marginTop: 10,
+            marginBottom: 10,
+          }}
+        >
+          {" "}
+          até{" "}
+        </Subtitle>
+
+        <Title onPress={showDatePicker1}>Saida</Title>
+        <Text
+          style={{
+            marginTop: 10,
+          }}
+        >
+          {moment(startedDate1).format("DD/MM/YYYY")}
+        </Text>
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+        />
+      </Box>
 
       <Box mt={20}>
         <Box>
