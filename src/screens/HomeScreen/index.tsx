@@ -9,11 +9,16 @@ import { useNavigation } from '@react-navigation/core';
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
 
+  const handleDetails = (params: any) => {
+    navigation.navigate('DetailsHouse', { ...params });
+  }
+
   const properties = [
     {
       id: '1',
       name: 'Recanto Rasalina',
-      description: 'Fazenda Rosalina, localizado as margens da Rodovia',
+      description: `Fazenda Rosalina, localizado as margens da Rodovia um lugar calmo e tranquilo, com várias áreas de lazer. Pensado para familias que querem passar um fim de semana na natureza
+      `,
       value: 1000,
       avaliation: 4,
       owner: 'Antonio de Souza',
@@ -23,22 +28,7 @@ const HomeScreen: React.FC = () => {
         require('../../assets/properties/f2.jpeg'),
         require('../../assets/properties/f3.jpeg'),
       ],
-      onPress: () => {
-        navigation.navigate('DetailsHouse', {
-          id: '1',
-          name: 'Recanto Rasalina',
-          description: 'Fazenda Rosalina, localizado as margens da Rodovia',
-          value: 1000,
-          avaliation: 4,
-          owner: 'Antonio de Souza',
-          image: require('../../assets/properties/f1.webp'),
-          photos: [
-            require('../../assets/properties/f1.webp'),
-            require('../../assets/properties/f2.jpeg'),
-            require('../../assets/properties/f3.jpeg'),
-          ]
-        });
-      }
+      onPress: () => handleDetails(properties[0]),
     },
     {
       id: '2',

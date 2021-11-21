@@ -46,7 +46,20 @@ export const Container = styled.View`
   background-color: ${Colors.white};
 `;
 
-export const TouchableBox = styled.TouchableOpacity``;
+export const ButtonDefault = styled.TouchableOpacity`
+  height: 52px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: ${Colors.green};
+  align-items: center;
+  justify-content: center;
+`;
+
+export const TextButtonDefault = styled.Text`
+  color: ${Colors.white};
+  font-size: 16px;
+  font-weight: bold;
+`;
 
 export const HorizontalDivider = styled.View`
 	border-bottom-width: 1px;

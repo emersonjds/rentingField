@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { Image, View } from 'react-native';
-import { Box, Container } from '../../components/Spacing';
+import { Box, ButtonDefault, Container, TextButtonDefault } from '../../components/Spacing';
 import { SliderBox } from "react-native-image-slider-box";
-
-
-// import { Container } from './styles';
+import { Subtitle, Title } from '../../components/Texts';
 
 const DetailsHouse: React.FC = ({ route }) => {
   const {
@@ -18,12 +16,6 @@ const DetailsHouse: React.FC = ({ route }) => {
     photos,
   } = route.params;
 
-  useEffect(() => {
-    console.log(
-      route.params.photos,
-    )
-  }, [])
-
   return (
     // <Container>
     <Box height="100%">
@@ -32,8 +24,23 @@ const DetailsHouse: React.FC = ({ route }) => {
           sliderBoxHeight={300}
         />
       </Box>
-      <Box height="60%">
+      <Box height="40%" p={20}>
+        <Box height="100%" bg="orange">
+          <Title>
+            {name}
+          </Title>
+          <Subtitle>
+            {description}
+          </Subtitle>
+        </Box>
 
+      </Box>
+      <Box height="20%" alignItems="center" justifyContent="center" p={20}>
+        <ButtonDefault>
+          <TextButtonDefault>
+            Ir para pagamento
+          </TextButtonDefault>
+        </ButtonDefault>
       </Box>
     </Box>
 
