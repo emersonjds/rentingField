@@ -1,20 +1,46 @@
 import React from 'react';
-import { Image, Text } from 'react-native';
+import { Image, Text, TouchableOpacity } from 'react-native';
 import Colors from '../../Contants';
 
 import { Box } from '../Spacing';
 import { Title } from '../Texts';
 
-const BoxHouse: React.FC = () => {
+interface BoxHouseProps {
+  id?: number;
+  name?: string;
+  description?: string;
+  value?: number;
+  avaliation?: number;
+  owner?: string;
+  image?: string;
+  onPress?: () => void;
+}
+
+const BoxHouse: React.FC<BoxHouseProps> = ({
+  id,
+  name,
+  description,
+  value,
+  avaliation,
+  owner,
+  image,
+  onPress,
+}) => {
   return (
-    <Box height={250} width={350} borderWidth={1} borderColor={
-      Colors.gray
-    }
-      borderRadius={20}
-      marginRight={10}
+    <TouchableOpacity
+      style={{
+        width: 350,
+        height: 250,
+        borderWidth: 1,
+        borderColor: Colors.gray,
+        borderRadius: 20,
+        marginRight: 10,
+      }}
+      onPress={onPress}
     >
+
       <Box height="65%">
-        <Image source={require('../../assets/properties/f2.jpeg')}
+        <Image source={image}
           resizeMode="cover"
           style={{
             height: '100%',
@@ -33,13 +59,12 @@ const BoxHouse: React.FC = () => {
           pl={20}
         >
           <Title>
-            Hubbles
+            {name}
           </Title>
           <Title>
-            R$ 1.000,00
+            R$ {value}
           </Title>
         </Box>
-
         <Box
           mt={20} flexDirection="row"
           width="100%"
@@ -48,14 +73,14 @@ const BoxHouse: React.FC = () => {
           pl={20}
         >
           <Text>
-            Avaliação
+            {avaliation}
           </Text>
           <Text>
-            Proprietario
+            {owner}
           </Text>
         </Box>
       </Box>
-    </Box>
+    </TouchableOpacity>
   );
 }
 

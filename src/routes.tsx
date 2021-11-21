@@ -13,6 +13,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import HomeScreen from './screens/HomeScreen';
 import Map from './screens/Map';
 import Adventure from './screens/Adventure';
+import DetailsHouse from './screens/DetailsHouse';
 
 
 const Stack = createNativeStackNavigator();
@@ -63,6 +64,11 @@ const Routes = () => {
         <Stack.Screen name="Home" component={Home} options={{
           headerShown: false
         }} />
+        <Stack.Screen name="DetailsHouse" component={DetailsHouse}
+          options={{
+            headerTitle: 'Detalhes'
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

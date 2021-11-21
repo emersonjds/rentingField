@@ -4,9 +4,36 @@ import { Box, Container, HorizontalDivider } from '../../components/Spacing';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import BoxHouse from '../../components/BoxHouse';
 import { Title } from '../../components/Texts';
-
+import { useNavigation } from '@react-navigation/core';
 
 const HomeScreen: React.FC = () => {
+  const navigation = useNavigation();
+
+  const properties = [
+    {
+      id: '1',
+      name: 'Recanto Rasalina',
+      description: 'Fazenda Rosalina, localizado as margens da Rodovia',
+      value: 1000,
+      avaliation: 4,
+      owner: 'Antonio de Souza',
+      image: require('../../assets/properties/f1.webp'),
+      onPress: () => {
+        navigation.navigate('DetailsHouse');
+      }
+    },
+    {
+      id: '2',
+      name: 'Rio do Ouro',
+      description: 'Fazenda Rio do Ouro, localizado na margem da Rodovia',
+      value: 2000,
+      avaliation: 3,
+      owner: 'Antonio de Souza',
+      image: require('../../assets/properties/f2.jpeg')
+    }
+  ]
+
+
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(true);
@@ -36,8 +63,11 @@ const HomeScreen: React.FC = () => {
 
       <Box width="100%">
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <BoxHouse />
-          <BoxHouse />
+          {
+            properties.map((item, index) => (
+              <BoxHouse key={index} {...item} />
+            ))
+          }
         </ScrollView>
       </Box>
 
