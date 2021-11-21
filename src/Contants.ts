@@ -10,3 +10,5 @@ const Colors = {
   dark_gray: '#434343',
   light_blue: '#9dd1cd',
 }
+
+export default Colors;
