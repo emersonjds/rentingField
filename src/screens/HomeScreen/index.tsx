@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Platform, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Button, Image, Platform, ScrollView, TouchableOpacity, View } from 'react-native';
 import { Box, Container, HorizontalDivider } from '../../components/Spacing';
 import BoxHouse from '../../components/BoxHouse';
-import { Title } from '../../components/Texts';
+import { Subtitle, Title } from '../../components/Texts';
 import { useNavigation } from '@react-navigation/core';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -76,6 +76,34 @@ const HomeScreen: React.FC = () => {
     }
   ]
 
+  const adventure = [
+    {
+      id: '1',
+      name: 'Rapel',
+      image: require('../../assets/adventure/rapel.jpeg'),
+    },
+    {
+      id: '2',
+      name: 'Trilha',
+      image: require('../../assets/adventure/trilha.jpeg'),
+    },
+    {
+      id: '3',
+      name: 'Motocross',
+      image: require('../../assets/adventure/moto.jpeg'),
+    },
+    {
+      id: '4',
+      name: 'Escalada',
+      image: require('../../assets/adventure/escalada.jpeg'),
+    },
+    {
+      id: '5',
+      name: 'Cachoeiras',
+      image: require('../../assets/adventure/cachoeira.webp'),
+    }
+  ]
+
   return (
     <Container>
 
@@ -101,16 +129,34 @@ const HomeScreen: React.FC = () => {
         Procurando Aventura ?!
       </Title>
 
-      <Box>
-        <TouchableOpacity>
+      <Box height={180}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {
+            adventure.map((item, index) => (
+              <Box alignItems="center" justifyContent="center">
+                <TouchableOpacity style={{
+                  height: 120,
+                  width: 150,
+                  marginRight: 10,
 
-        </TouchableOpacity>
+                }}>
+                  <Image source={item.image} style={{
+                    height: '100%',
+                    width: '100%',
+                    borderRadius: 10,
+                  }} />
+                  <Subtitle style={{ marginTop: 10, alignSelf: 'center' }}>
+                    {item.name}
+                  </Subtitle>
+                </TouchableOpacity>
+              </Box>
+            ))
+          }
+
+        </ScrollView>
+
+
       </Box>
-
-
-
-
-
 
     </Container>
   );
