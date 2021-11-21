@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Platform, ScrollView, View } from 'react-native';
+import { Button, Platform, ScrollView, TouchableOpacity, View } from 'react-native';
 import { Box, Container, HorizontalDivider } from '../../components/Spacing';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import BoxHouse from '../../components/BoxHouse';
@@ -131,6 +131,12 @@ const HomeScreen: React.FC = () => {
       <Title>
         Procurando Aventura ?!
       </Title>
+
+      <Box>
+        <TouchableOpacity>
+
+        </TouchableOpacity>
+      </Box>
 
 
 
