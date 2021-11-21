@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Image, View } from 'react-native';
-import { Box, ButtonDefault, Container, TextButtonDefault } from '../../components/Spacing';
+import { Box, ButtonDefault, Container, HorizontalDivider, TextButtonDefault } from '../../components/Spacing';
 import { SliderBox } from "react-native-image-slider-box";
 import { Subtitle, Title } from '../../components/Texts';
 
@@ -14,6 +14,8 @@ const DetailsHouse: React.FC = ({ route }) => {
     owner,
     image,
     photos,
+    assets,
+    extraActivities
   } = route.params;
 
   return (
@@ -25,13 +27,42 @@ const DetailsHouse: React.FC = ({ route }) => {
         />
       </Box>
       <Box height="40%" p={20}>
-        <Box height="100%" bg="orange">
+        <Box height="100%" >
           <Title>
             {name}
           </Title>
-          <Subtitle>
+          <Subtitle style={{ marginTop: 20 }}>
             {description}
           </Subtitle>
+          <HorizontalDivider />
+
+          <Title> Disponivel no Local</Title>
+
+          <Box flexDirection="row" justifyContent="space-between" flexWrap="wrap">
+            {
+              assets.map((item, index: number) => (
+                <Box key={index} mt={10} >
+                  <Box flexDirection="row" >
+                    {
+                      item.icon
+                    }
+                    <Subtitle style={{ marginLeft: 10, marginTop: 5 }}>
+                      {item.name}
+                    </Subtitle>
+                  </Box>
+                </Box>
+              ))
+            }
+          </Box>
+
+          <Box mt={20}>
+            <Title>
+              Atividades Extras
+            </Title>
+            <Subtitle style={{ textAlign: 'left', marginTop: 10 }}>
+              {extraActivities}
+            </Subtitle>
+          </Box>
         </Box>
 
       </Box>
@@ -42,7 +73,7 @@ const DetailsHouse: React.FC = ({ route }) => {
           </TextButtonDefault>
         </ButtonDefault>
       </Box>
-    </Box>
+    </Box >
 
     // </Container>
   )
