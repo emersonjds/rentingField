@@ -13,6 +13,7 @@ interface BoxHouseProps {
   avaliation?: number;
   owner?: string;
   image?: string;
+  photos?: string[];
   onPress?: () => void;
 }
 

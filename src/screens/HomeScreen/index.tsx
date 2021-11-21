@@ -18,8 +18,26 @@ const HomeScreen: React.FC = () => {
       avaliation: 4,
       owner: 'Antonio de Souza',
       image: require('../../assets/properties/f1.webp'),
+      photos: [
+        require('../../assets/properties/f1.webp'),
+        require('../../assets/properties/f2.jpeg'),
+        require('../../assets/properties/f3.jpeg'),
+      ],
       onPress: () => {
-        navigation.navigate('DetailsHouse');
+        navigation.navigate('DetailsHouse', {
+          id: '1',
+          name: 'Recanto Rasalina',
+          description: 'Fazenda Rosalina, localizado as margens da Rodovia',
+          value: 1000,
+          avaliation: 4,
+          owner: 'Antonio de Souza',
+          image: require('../../assets/properties/f1.webp'),
+          photos: [
+            require('../../assets/properties/f1.webp'),
+            require('../../assets/properties/f2.jpeg'),
+            require('../../assets/properties/f3.jpeg'),
+          ]
+        });
       }
     },
     {
