@@ -9,30 +9,30 @@ const HomeScreen: React.FC = () => {
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(true);
 
-  const onChange = (event: any, selectedDate: Date) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
-  };
+  // const onChange = (event: any, selectedDate: Date) => {
+  //   const currentDate = selectedDate || date;
+  //   setShow(Platform.OS === 'ios');
+  //   setDate(currentDate);
+  // };
 
-  const showMode = (currentMode: React.SetStateAction<string>) => {
-    setShow(true);
-    setMode(currentMode);
-  };
+  // const showMode = (currentMode: React.SetStateAction<string>) => {
+  //   setShow(true);
+  //   setMode(currentMode);
+  // };
 
-  const showDatepicker = () => {
-    showMode('date');
-  };
+  // const showDatepicker = () => {
+  //   showMode('date');
+  // };
 
-  const showTimepicker = () => {
-    showMode('time');
-  };
+  // const showTimepicker = () => {
+  //   showMode('time');
+  // };
 
 
   return (
     <Container>
       <Box>
-        <View>
+        {/* <View>
           <View>
             <Button onPress={showDatepicker} title="Show date picker!" />
           </View>
@@ -53,7 +53,7 @@ const HomeScreen: React.FC = () => {
               onChange={onChange}
             />
           )}
-        </View>
+        </View> */}
       </Box>
       <HorizontalDivider />
     </Container>
