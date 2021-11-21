@@ -24,6 +24,10 @@ const HomeScreen: React.FC = () => {
     navigation.navigate("DetailsHouse", { ...params });
   };
 
+  const handleAdventure = (params: any) => {
+    navigation.navigate("DetailsAdventure", { ...params });
+  };
+
   const properties: Array<any> = [
     {
       id: "1",
@@ -101,7 +105,61 @@ const HomeScreen: React.FC = () => {
       id: "1",
       name: "Rapel",
       image: require("../../assets/adventure/rapel.jpeg"),
+      description: "Aventura de rapel",
+      value: 100,
+      propertieName: "Fazenda Ouro Fino",
+      descriptionPropertie:
+        "Localizada proxima a rodovia principal do Estado , a Ouro Fino é muito procurada para prática de esporte",
+      avaliation: 4,
+      owner: "José Inácio",
+      guide: "Mauricio Souza",
+      agency: "Radical - Rapel PR",
+      photos: [
+        require("../../assets/properties/fazenda1.jpeg"),
+        require("../../assets/properties/fazenda2.jpeg"),
+        require("../../assets/adventure/rapel.jpeg"),
+        require("../../assets/adventure/rapel2.jpeg"),
+        require("../../assets/adventure/rapel3.jpeg"),
+      ],
+      onPress: () => handleAdventure(adventure[0]),
+      assets: [
+        {
+          id: "1",
+          name: "wifi",
+          icon: <AntDesign name="wifi" size={30} color={Colors.blue_green} />,
+        },
+        {
+          id: "2",
+          name: "tv",
+          icon: <Feather name="tv" size={30} color={Colors.blue_green} />,
+        },
+        {
+          id: "3",
+          name: "piscina",
+          icon: (
+            <MaterialCommunityIcons
+              name="pool"
+              size={30}
+              color={Colors.blue_green}
+            />
+          ),
+        },
+        {
+          id: "4",
+          name: "parked",
+          icon: (
+            <MaterialIcons
+              name="local-parking"
+              size={30}
+              color={Colors.blue_green}
+            />
+          ),
+        },
+      ],
+      extraActivities:
+        "Alem de um lugar tranquilo para relaxar durante a estadia , a fazenda conta com 4 cachoeiras, todas preparadas para prática de rapel",
     },
+
     {
       id: "2",
       name: "Trilha",
@@ -219,6 +277,7 @@ const HomeScreen: React.FC = () => {
                   width: 150,
                   marginRight: 10,
                 }}
+                onPress={() => handleAdventure(item)}
               >
                 <Image
                   source={item.image}
