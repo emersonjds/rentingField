@@ -208,93 +208,95 @@ const HomeScreen: React.FC = () => {
 
   return (
     <Container>
-      <Box width="100%">
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {properties.map((item, index) => (
-            <BoxHouse key={index} {...item} />
-          ))}
-        </ScrollView>
-      </Box>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Box width="100%">
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {properties.map((item, index) => (
+              <BoxHouse key={index} {...item} />
+            ))}
+          </ScrollView>
+        </Box>
 
-      <HorizontalDivider />
+        <HorizontalDivider />
 
-      <Title>Melhores Ofertas</Title>
+        <Title>Melhores Ofertas</Title>
 
-      <Box mt={10}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {anotherFields.map((item, index) => (
-            <TouchableOpacity
-              key={item.id}
-              style={{
-                height: 150,
-                width: 200,
-                borderRadius: 20,
-                borderWidth: 1,
-                borderColor: Colors.gray,
-                marginRight: 10,
-              }}
-            >
-              <Box>
-                <Image
-                  source={item.image}
-                  style={{
-                    height: 75,
-                    width: "100%",
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
-                  }}
-                />
-              </Box>
-              <Box p={10}>
-                <Title>{item.name}</Title>
-                <Subtitle>R$ {item.value}</Subtitle>
-                <Box flexDirection="row">
-                  <Subtitle>{item.avaliation}</Subtitle>
-                  <AntDesign
-                    name="star"
-                    size={18}
-                    color={Colors.orange}
-                    style={{ marginLeft: 5 }}
-                  />
-                </Box>
-              </Box>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </Box>
-
-      <HorizontalDivider />
-
-      <Title>Procurando Aventura ?!</Title>
-
-      <Box height={180}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {adventure.map((item, index) => (
-            <Box key={index} alignItems="center" justifyContent="center">
+        <Box mt={10}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {anotherFields.map((item, index) => (
               <TouchableOpacity
+                key={item.id}
                 style={{
-                  height: 120,
-                  width: 150,
+                  height: 150,
+                  width: 200,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  borderColor: Colors.gray,
                   marginRight: 10,
                 }}
-                onPress={() => handleAdventure(item)}
               >
-                <Image
-                  source={item.image}
-                  style={{
-                    height: "100%",
-                    width: "100%",
-                    borderRadius: 10,
-                  }}
-                />
-                <Subtitle style={{ marginTop: 10, alignSelf: "center" }}>
-                  {item.name}
-                </Subtitle>
+                <Box>
+                  <Image
+                    source={item.image}
+                    style={{
+                      height: 75,
+                      width: "100%",
+                      borderTopLeftRadius: 20,
+                      borderTopRightRadius: 20,
+                    }}
+                  />
+                </Box>
+                <Box p={10}>
+                  <Title>{item.name}</Title>
+                  <Subtitle>R$ {item.value}</Subtitle>
+                  <Box flexDirection="row">
+                    <Subtitle>{item.avaliation}</Subtitle>
+                    <AntDesign
+                      name="star"
+                      size={18}
+                      color={Colors.orange}
+                      style={{ marginLeft: 5 }}
+                    />
+                  </Box>
+                </Box>
               </TouchableOpacity>
-            </Box>
-          ))}
-        </ScrollView>
-      </Box>
+            ))}
+          </ScrollView>
+        </Box>
+
+        <HorizontalDivider />
+
+        <Title>Procurando Aventura ?!</Title>
+
+        <Box height={180}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {adventure.map((item, index) => (
+              <Box key={index} alignItems="center" justifyContent="center">
+                <TouchableOpacity
+                  style={{
+                    height: 120,
+                    width: 150,
+                    marginRight: 10,
+                  }}
+                  onPress={() => handleAdventure(item)}
+                >
+                  <Image
+                    source={item.image}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      borderRadius: 10,
+                    }}
+                  />
+                  <Subtitle style={{ marginTop: 10, alignSelf: "center" }}>
+                    {item.name}
+                  </Subtitle>
+                </TouchableOpacity>
+              </Box>
+            ))}
+          </ScrollView>
+        </Box>
+      </ScrollView>
     </Container>
   );
 };
